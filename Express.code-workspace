@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../Newsletter-Signup"
+    },
+    {
+      "path": "../WeatherProject"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Charlie Eison - CSS"
+  }
+}

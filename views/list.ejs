@@ -1,0 +1,33 @@
+<!-- We are using our standard layout, standard header and footer files, through ejs include -->
+
+<%- include("header") %>
+<div class="box" id="heading">
+    <h1><%= listTitle %></h1>
+</div>
+
+<div class="box">
+    <!-- Here we set up a for loop to populate our list items. -->
+
+    <!-- the '< %' without the = is a scriplet, allows us to run control flow only code in html. Must wrap all js code 
+        on a line by line basis. It does NOT wrap html code.-->
+    <% for (var i=0; i < newListItems.length; i++) { %>
+
+    <div class="item">
+        <!-- this is ejs. shortcut  ejs, ejsout, etc.. Used to get variables from our ejs view engine in js.
+        this must be a .ejs file located in a 'views' folder to work. Here, Our ejs item is newListItems. -->
+        <input type="checkbox" />
+        <p><%= newListItems[i] %></p>
+    </div>
+
+    <% } %>
+
+    <form class="item" action="/" method="post">
+        <!-- prettier-ignore -->
+        <input type="text" name="newItem" placeholder="New item" autocomplete="off"/>
+        <!-- We use the name property to determine which list to add the new item to based on 
+                the value, which we determine from our listTitle. The value can be captured with req.body.whichList -->
+        <!-- prettier-ignore -->
+        <button type="Submit" name="whichList" value="<%= listTitle  %>">+</button>
+    </form>
+</div>
+<%- include("footer") %>
